@@ -1,0 +1,145 @@
+/* public/css/estilo.css */
+
+/* --- GERAL --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6; /* Cinza claro fundo */
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* --- BOTÕES (Classe .btn) --- */
+/* Transformamos links <a> em botões bonitos */
+.btn {
+    display: inline-block;
+    background-color: #2563eb; /* Azul */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #1d4ed8; /* Azul escuro */
+}
+
+.btn-voltar {
+    position: absolute; /* Cola no canto da tela */
+    top: 20px;
+    left: 20px;
+    background-color: #6b7280; /* Cinza */
+    font-size: 0.9rem;
+}
+
+.btn-large {
+    min-width: 200px; /* Botões da home mais largos */
+}
+
+/* --- INPUTS --- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    box-sizing: border-box; /* Previne estourar a largura */
+}
+
+/* --- PÁGINA INICIAL --- */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza horizontalmente */
+    text-align: center;
+}
+
+.home-titulo {
+    position: absolute;
+    top: 10%; /* Título fica mais no topo */
+    font-size: 2.5rem;
+    color: #1e3a8a;
+}
+
+.home-botoes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre botões */
+}
+
+/* --- FORMULÁRIOS (Quadrado Central) --- */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Para o botão voltar funcionar */
+}
+
+.auth-card {
+    background-color: white;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.auth-card h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 25px;
+}
+
+/* Estilo para Radio Buttons (Sexo) */
+.radio-group {
+    margin: 15px 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Alertas de Erro */
+.alert-danger {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+.alert-danger ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+/* --- DASHBOARD --- */
+.dashboard-header {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-menu ul {
+    list-style: none;
+    padding: 0;
+}
+.dashboard-menu li {
+    display: inline;
+    margin-left: 20px;
+}

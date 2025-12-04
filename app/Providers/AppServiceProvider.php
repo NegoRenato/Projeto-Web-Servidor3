@@ -21,12 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Lógica para mudar o redirecionamento do Login
         $this->app->instance(LoginResponse::class, new class implements LoginResponse {
             public function toResponse($request)
             {
-                // TROQUE '/minha-pagina-segura' PELA URL QUE VOCÊ CRIOU
-                return redirect('/minha-pagina-segura');
+                return redirect('/area-do-aluno');
             }
         });
     }

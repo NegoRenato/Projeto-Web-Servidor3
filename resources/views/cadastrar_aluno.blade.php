@@ -1,37 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Cadastrar.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('css/meu-estilo.css') }}">
+    <title>Cadastro</title>
 </head>
 <body>
-    <main>
-        <button class="botao"><a href="/">voltar para pagina inicial</a></button>
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    
+    <div class="auth-container">
+        <a href="/" class="btn btn-voltar">← Voltar</a>
+
+        <div class="auth-card">
+            <h2>Cadastro de Aluno</h2>
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+
+            <form action="{{ route('register') }}" method="post">
+                @csrf
+                
+                <label>Nome Completo</label>
+                <input type="text" name="name" required>
+
+                <label>Data de Nascimento</label>
+                <input type="date" name="data_nascimento" required>
+
+                <label>Email</label>
+                <input type="email" name="email" required>
+
+                <label>Nome de Usuário (Login)</label>
+                <input type="text" name="username" required>
+
+                <label>Senha</label>
+                <input type="password" name="password" required>
+
+                <label>Confirmar Senha</label>
+                <input type="password" name="password_confirmation" required>
+
+                <div class="radio-group">
+                    <span>Sexo:</span>
+                    <label><input type="radio" name="sexo" value="Masculino" checked> Masculino</label>
+                    <label><input type="radio" name="sexo" value="Feminino"> Feminino</label>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;">CADASTRAR</button>
+            </form>
         </div>
-        @endif
-        <h2>Cadastro Aluno</h2>
-        <form id="formulario" action="{{ route('register') }}" method="post">
-            @csrf
-           <label for="1">Nome:<input class="caixa-texto" type="text" name="name" id="1"><br><br></label>
-            <label for="2">Data de Nascimento: <input type="date" name="dataNascimento" id="2"><br><br></label>
-            <label for="6">email: <input class="caixa-texto" type="email" name="email" id="6"><br><br></label>
-            <label for="3">nome de usuario: <input class="caixa-texto" type="text" name="username" id="3"><br><br></label>
-            <label for="4">senha do usuario: <input class="caixa-texto" type="password" name="password" id="4"> <br><br></label>
-            <label>Confirmar Senha<input type="password" name="password_confirmation" class="form-control" required></label>
-            <label for="5">Sexo:</label>
-            <label for="">Masculino <input type="radio" name="sexo" id="5" value="Masculino" checked></label>
-            <label for="">Feminino <input type="radio" name="sexo" id="5" value="Feminino"></label>
-            <input class="botao" type="submit" value="Cadastrar">
-        </form>
-    </main>
+    </div>
+
 </body>
 </html>
